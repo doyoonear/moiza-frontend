@@ -1,0 +1,24 @@
+{
+  "include": ["src/**/*", "custom.d.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["src/components/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/types/*": ["src/types/*"],
+      "@/atoms/*": ["src/atoms/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/assets/*": ["public/assets/*"]
+    }
+  }
+}
