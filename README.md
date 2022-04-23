@@ -4,4 +4,4 @@
 
 ## Used
 
-- typescript, react, styled-components, recoil
+- typescript, react, react-query, recoil, emotion, tailwind
