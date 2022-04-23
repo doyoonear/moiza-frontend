@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ThemeProvider } from 'styled-components';
 import { RecoilRoot } from 'recoil';
-import baseTheme from './styles/baseTheme';
-import GlobalStyles from './styles/globalStyles';
+import { ThemeProvider } from 'styled-components';
 import Main from './pages/Main';
-
+import baseTheme from './styles/baseTheme';
+import './styles/globals.css';
+import GlobalStyles from './styles/globalStyles';
 function RootWithCallbackAfterRender() {
   useEffect(() => {
     console.log('rendered');
