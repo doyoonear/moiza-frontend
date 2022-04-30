@@ -65,7 +65,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Spotify project',
+      title: 'Moiza project',
       template: './src/index.html',
     }),
     new Dotenv(),
