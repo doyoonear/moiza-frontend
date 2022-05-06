@@ -27,10 +27,8 @@ const ModalPortal = ({ children }: ModalPortalProps) => {
       {modalList.map(({ key, props }) => {
         if (key === 'selectableModal') {
           return (
-            <Wrapper onClick={clickBackdrop}>
-              <SelectableModal {...props} key={key}>
-                {children}
-              </SelectableModal>
+            <Wrapper onClick={clickBackdrop} key={key}>
+              <SelectableModal {...props}>{children}</SelectableModal>
             </Wrapper>
           );
         }
