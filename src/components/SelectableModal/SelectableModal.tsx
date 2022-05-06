@@ -3,12 +3,12 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
-export interface SelectableModal {
+export interface SelectableModalProps {
   title: string;
   children?: ReactNode;
 }
 
-const SelectableModal = ({ title, children }: SelectableModal) => {
+const SelectableModal = ({ title, children }: SelectableModalProps) => {
   const modalList = useRecoilValue(modalListAtom);
   const isActivated = modalList.find((modal) => modal.key === 'selectableModal');
 
