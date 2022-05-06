@@ -1,8 +1,9 @@
-import { SelectableModal } from '@/components/SelectableModal/SelectableModal';
+import { ConfirmModalProps } from '@/components/ConfirmModal/ConfirmModal';
+import { SelectableModalProps } from '@/components/SelectableModal/SelectableModal';
 import { atom } from 'recoil';
 
-type ModalKey = 'selectableModal';
-type ModalProps = SelectableModal;
+type ModalKey = 'selectableModal' | 'confirmModal';
+type ModalProps = SelectableModalProps | ConfirmModalProps;
 
 export interface Modal {
   key: ModalKey;

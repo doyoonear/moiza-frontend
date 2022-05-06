@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useRecoilValue } from 'recoil';
+import ConfirmModal from '../ConfirmModal';
 import SelectableModal from '../SelectableModal';
 
 interface ModalPortalProps {
@@ -21,7 +22,6 @@ const ModalPortal = ({ children }: ModalPortalProps) => {
     if (target !== currentTarget) return;
     closeModal();
   };
-
   return createPortal(
     <>
       {modalList.map(({ key, props }) => {
@@ -29,6 +29,13 @@ const ModalPortal = ({ children }: ModalPortalProps) => {
           return (
             <Wrapper onClick={clickBackdrop} key={key}>
               <SelectableModal {...props}>{children}</SelectableModal>
+            </Wrapper>
+          );
+        }
+        if (key === 'confirmModal') {
+          return (
+            <Wrapper onClick={clickBackdrop} key={key}>
+              <ConfirmModal {...props}>{children}</ConfirmModal>
             </Wrapper>
           );
         }
