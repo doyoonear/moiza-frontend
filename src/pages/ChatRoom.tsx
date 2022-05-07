@@ -2,6 +2,7 @@ import React from 'react';
 import CommonTitle from '@/components/Typography/Title';
 import ChatBubble from '@/components/ChatBubble';
 import styled from '@emotion/styled';
+import { ChatBubbleEdgeType } from '@/constants/components';
 
 function ChatRoom() {
   return (
@@ -11,7 +12,7 @@ function ChatRoom() {
         <ChatBubble>ㅇ아아아아아아아아아아</ChatBubble>
       </ChatRoomRow>
       <ChatRoomRow>
-        <ChatBubble edgeLocation="right">어쩌구저쩌구</ChatBubble>
+        <ChatBubble edgeLocation={ChatBubbleEdgeType.RIGHT}>어쩌구저쩌구</ChatBubble>
       </ChatRoomRow>
     </StyledChatRoom>
   );
