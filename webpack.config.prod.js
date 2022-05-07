@@ -3,12 +3,12 @@ const yaml = require('yamljs');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Spotify project',
+      title: 'Moiza project',
       template: './src/index.html',
     }),
   ],
