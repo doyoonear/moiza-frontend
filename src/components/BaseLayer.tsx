@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+function BaseLayer() {
+  return (
+    <Contain>
+      <Title>지금 모일 수 있는 곳</Title>
+      <ChatList>
+        {[1, 2, 3, 4, 5, 6].map((el, idx) => {
+          return <ChatBox key={idx}></ChatBox>;
+        })}
+      </ChatList>
+    </Contain>
+  );
+}
+
+export default BaseLayer;
+
+const Contain = styled.div`
+  padding: 25px;
+`;
+
+const Title = styled.h2`
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  margin-bottom: 25px;
+`;
+
+const ChatList = styled.div``;
+
+const ChatBox = styled.div`
+  padding: 15px;
+  background: #fff;
+  margin-bottom: 20px;
+`;
