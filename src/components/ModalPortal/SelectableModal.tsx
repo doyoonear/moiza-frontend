@@ -1,19 +1,21 @@
-import modalListAtom from '@/atoms/modalList';
+import modalAtom from '@/atoms/modal/atom';
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
 
-export interface SelectableModalProps {
+interface SelectableModalProps {
   title: string;
   children?: ReactNode;
 }
 
-const SelectableModal = ({ title, children }: SelectableModalProps) => {
-  const modalList = useRecoilValue(modalListAtom);
-  const isActivated = modalList.find((modal) => modal.key === 'selectableModal');
+interface StyledContainerProps {
+  isVisible?: boolean;
+}
 
+const SelectableModal = ({ title, children }: SelectableModalProps) => {
+  const modal = useRecoilValue(modalAtom);
   return (
-    <Container isVisible={isActivated ? true : false}>
+    <Container isVisible={modal ? true : false}>
       <Title>{title}</Title>
       <Lists>{children}</Lists>
     </Container>
@@ -22,11 +24,7 @@ const SelectableModal = ({ title, children }: SelectableModalProps) => {
 
 export default SelectableModal;
 
-interface ContainerProps {
-  isVisible?: boolean;
-}
-
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<StyledContainerProps>`
   display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
   position: absolute;
   bottom: 0;

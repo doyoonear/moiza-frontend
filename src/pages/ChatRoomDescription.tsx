@@ -1,7 +1,10 @@
+import modalAtom from '@/atoms/modal/atom';
 import ModalPortal from '@/components/ModalPortal';
+import SelectableModal from '@/components/ModalPortal/SelectableModal';
 import StartingChatInput from '@/components/StartingChatInput';
 import useModal from '@/hooks/useModal';
 import { ChangeEvent, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 const categories = [
   '커피챗',
@@ -21,15 +24,12 @@ const categories = [
 const ChatRoomDescription = () => {
   const [inputs, setInputs] = useState({ category: '', name: '', description: '' });
 
+  const modal = useRecoilValue(modalAtom);
+
   const { openModal, closeModal } = useModal();
 
   const showSelectableModal = () => {
-    openModal({
-      key: 'selectableModal',
-      props: {
-        title: '주제',
-      },
-    });
+    openModal();
   };
 
   const changeInput = (event: ChangeEvent) => {
@@ -61,16 +61,20 @@ const ChatRoomDescription = () => {
         placeHolder="어떤 방인지 알려주세요"
         onChange={changeInput}
       />
-      <ModalPortal>
-        {categories.map((category, index) => (
-          <li key={index}>
-            <label htmlFor={category}>
-              <input type="radio" name="category" value={category} onChange={selectCategory} />
-              {category}
-            </label>
-          </li>
-        ))}
-      </ModalPortal>
+      {modal && (
+        <ModalPortal>
+          <SelectableModal title="주제">
+            {categories.map((category, index) => (
+              <li key={index}>
+                <label htmlFor={category}>
+                  <input type="radio" name="category" value={category} onChange={selectCategory} />
+                  {category}
+                </label>
+              </li>
+            ))}
+          </SelectableModal>
+        </ModalPortal>
+      )}
     </>
   );
 };
