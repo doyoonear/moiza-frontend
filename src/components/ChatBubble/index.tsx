@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import ChatEdgeLeftSvg from '@/assets/chatedge-left.svg';
 import ChatEdgeRightSvg from '@/assets/chatedge-right.svg';
@@ -8,7 +8,7 @@ const ChatBubble = ({
   children,
   edgeLocation = ChatBubbleEdgeType.LEFT,
 }: {
-  children: string;
+  children: ReactNode;
   edgeLocation?: keyof typeof ChatBubbleEdgeType;
 }): JSX.Element => {
   return (
@@ -29,7 +29,6 @@ const ChatBubble = ({
 };
 
 const StyledChatBubble = styled.div`
-  box-sizing: border-box;
   display: inline-flex;
   position: relative;
   padding: 1.5rem;
