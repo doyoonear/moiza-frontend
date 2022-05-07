@@ -7,13 +7,23 @@ function ChatRoom() {
   return (
     <StyledChatRoom>
       <CommonTitle>채팅방 화면</CommonTitle>
-      <ChatBubble>ㅇ아아아아아아아아아아</ChatBubble>
+      <ChatRoomRow>
+        <ChatBubble>ㅇ아아아아아아아아아아</ChatBubble>
+      </ChatRoomRow>
+      <ChatRoomRow>
+        <ChatBubble edgeLocation="right">어쩌구저쩌구</ChatBubble>
+      </ChatRoomRow>
     </StyledChatRoom>
   );
 }
 
 const StyledChatRoom = styled.div`
   background-color: ${({ theme }) => theme.color.primary};
+  height: 100vh;
+`;
+
+const ChatRoomRow = styled.div`
+  display: block;
 `;
 
 export default ChatRoom;
