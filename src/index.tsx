@@ -8,7 +8,6 @@ import ChatRoom from './pages/ChatRoom';
 import ChatRoomDescription from './pages/ChatRoomDescription';
 import Main from './pages/Main';
 import baseTheme from './styles/baseTheme';
-import './styles/globals.css';
 import GlobalStyles from './styles/globalStyles';
 
 function RootWithCallbackAfterRender() {
