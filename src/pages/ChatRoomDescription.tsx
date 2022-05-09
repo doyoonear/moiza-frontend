@@ -24,12 +24,12 @@ const categories = [
 const ChatRoomDescription = () => {
   const [inputs, setInputs] = useState({ category: '', name: '', description: '' });
 
-  const modal = useRecoilValue(modalAtom);
-
   const { openModal, closeModal } = useModal();
 
+  const isModalActivated = useRecoilValue(modalAtom).includes('selectableModal');
+
   const showSelectableModal = () => {
-    openModal();
+    openModal('selectableModal');
   };
 
   const changeInput = (event: ChangeEvent) => {
@@ -61,7 +61,7 @@ const ChatRoomDescription = () => {
         placeHolder="어떤 방인지 알려주세요"
         onChange={changeInput}
       />
-      {modal && (
+      {isModalActivated && (
         <ModalPortal>
           <SelectableModal title="주제" name="category" onChange={selectCategory}>
             {categories}

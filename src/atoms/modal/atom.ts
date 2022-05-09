@@ -1,8 +1,10 @@
 import { atom } from 'recoil';
 
-const modalAtom = atom<boolean>({
+export type ModalKey = 'selectableModal' | 'confirmModal';
+
+const modalAtom = atom<ModalKey[]>({
   key: 'modalAtom',
-  default: false,
+  default: [],
 });
 
 export default modalAtom;
