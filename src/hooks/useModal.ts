@@ -1,5 +1,5 @@
 import modalAtom from '@/atoms/modal/atom';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 interface UseModal {
   openModal: () => void;
@@ -7,7 +7,7 @@ interface UseModal {
 }
 
 const useModal = (): UseModal => {
-  const [modal, setModal] = useRecoilState(modalAtom);
+  const setModal = useSetRecoilState(modalAtom);
 
   const openModal = () => {
     setModal(true);
