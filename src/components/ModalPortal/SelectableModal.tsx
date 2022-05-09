@@ -1,31 +1,34 @@
-import modalAtom from '@/atoms/modal/atom';
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
-import { useRecoilValue } from 'recoil';
+import { ChangeEventHandler } from 'react';
 
 interface SelectableModalProps {
   title: string;
-  children?: ReactNode;
+  name: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  children?: string[];
 }
 
-interface StyledContainerProps {
-  isVisible?: boolean;
-}
-
-const SelectableModal = ({ title, children }: SelectableModalProps) => {
-  const modal = useRecoilValue(modalAtom);
+const SelectableModal = ({ title, name, onChange, children }: SelectableModalProps) => {
   return (
-    <Container isVisible={modal ? true : false}>
+    <Container>
       <Title>{title}</Title>
-      <Lists>{children}</Lists>
+      <Wrapper>
+        {children.map((element) => (
+          <Item key={element}>
+            <label htmlFor={element}>
+              <input type="radio" id={element} name={name} value={element} onChange={onChange} />
+              {element}
+            </label>
+          </Item>
+        ))}
+      </Wrapper>
     </Container>
   );
 };
 
 export default SelectableModal;
 
-const Container = styled.div<StyledContainerProps>`
-  display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+const Container = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -37,8 +40,11 @@ const Container = styled.div<StyledContainerProps>`
 
 const Title = styled.h3``;
 
-const Lists = styled.ul`
-  > li {
-    cursor: pointer;
+const Wrapper = styled.ul``;
+
+const Item = styled.li`
+  cursor: pointer;
+  input {
+    width: 0;
   }
 `;

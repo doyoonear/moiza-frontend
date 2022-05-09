@@ -63,15 +63,8 @@ const ChatRoomDescription = () => {
       />
       {modal && (
         <ModalPortal>
-          <SelectableModal title="주제">
-            {categories.map((category, index) => (
-              <li key={index}>
-                <label htmlFor={category}>
-                  <input type="radio" name="category" value={category} onChange={selectCategory} />
-                  {category}
-                </label>
-              </li>
-            ))}
+          <SelectableModal title="주제" name="category" onChange={selectCategory}>
+            {categories}
           </SelectableModal>
         </ModalPortal>
       )}
