@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
-import { ThemeProvider } from 'styled-components';
-import Main from './pages/Main';
+import { ThemeProvider, Global, css } from '@emotion/react';
 import baseTheme from './styles/baseTheme';
 import './styles/globals.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './styles/globalStyles';
-import NavBar from '@/components/common/NavBar';
+
+import NavBar from '@/components/Navigation/NavBar';
+import Main from './pages/Main';
+import ChatRoom from './pages/ChatRoom';
 
 function RootWithCallbackAfterRender() {
   useEffect(() => {
@@ -15,11 +18,20 @@ function RootWithCallbackAfterRender() {
 
   return (
     <React.Fragment>
-      <GlobalStyles />
       <ThemeProvider theme={baseTheme}>
+        <Global
+          styles={css`
+            ${GlobalStyles}
+          `}
+        />
         <RecoilRoot>
-          <NavBar />
-          <Main />
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="chatroom" element={<ChatRoom />} />
+            </Routes>
+          </BrowserRouter>
         </RecoilRoot>
       </ThemeProvider>
     </React.Fragment>
