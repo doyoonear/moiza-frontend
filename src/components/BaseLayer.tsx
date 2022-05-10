@@ -3,20 +3,20 @@ import styled from 'styled-components';
 
 function BaseLayer() {
   return (
-    <Contain>
+    <Container>
       <Title>지금 모일 수 있는 곳</Title>
       <ChatList>
         {[1, 2, 3, 4, 5, 6].map((el, idx) => {
           return <ChatBox key={idx}></ChatBox>;
         })}
       </ChatList>
-    </Contain>
+    </Container>
   );
 }
 
 export default BaseLayer;
 
-const Contain = styled.div`
+const Container = styled.div`
   padding: 25px;
 `;
 
