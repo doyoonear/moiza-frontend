@@ -1,6 +1,6 @@
 import React from 'react';
 import CommonTitle from '@/components/Typography/Title';
-import ChatRoomRow from '@/components/ChatRoomRow';
+import ChatRoomRow from '@/components/ChatRoom/ChatRoomRow';
 import styled from '@emotion/styled';
 import Layout from '@/components/Layout';
 
