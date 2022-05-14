@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 import { ChatBubbleEdgeType } from '@/constants/components';
-import ChatProfileImg from '@/components/ChatProfileImg';
-import ChatBubble from '@/components/ChatBubble';
+import ChatProfileImg from '@/components/ChatRoom/ChatProfileImg';
+import ChatBubble from '@/components/ChatRoom/ChatBubble';
 
 interface ChatRoomRowProps {
   imgAlt?: string;
