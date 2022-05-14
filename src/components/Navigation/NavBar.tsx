@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 import HomeIcon from '@/assets/home.svg';
 import HamburgerIcon from '@/assets/hamburger.svg';
@@ -9,9 +10,15 @@ import MyPageIcon from '@/assets/mypage.svg';
 const NavBar = (): JSX.Element => {
   return (
     <StyledNavBar>
-      <HomeIcon />
-      <ChatIcon />
-      <MyPageIcon />
+      <Link to="/">
+        <HomeIcon />
+      </Link>
+      <Link to="/chatroom">
+        <ChatIcon />
+      </Link>
+      <Link to="/mypage">
+        <MyPageIcon />
+      </Link>
       <HamburgerIcon />
     </StyledNavBar>
   );
