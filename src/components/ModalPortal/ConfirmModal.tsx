@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import Button from '../Button';
 
-export interface ConfirmModalProps {
+interface ConfirmModalProps {
   title: string;
   //confirmText를 필수 props로 할 때 왜 오류가 나는 걸까.....
   confirmText?: string;
