@@ -10,8 +10,7 @@ const useModal = (): UseModal => {
   const [modalList, setModalList] = useRecoilState(modalListAtom);
 
   const openModal = (modalListKey: ModalListKey) => {
-    const newModalList = [...modalList];
-    newModalList.push(modalListKey);
+    const newModalList = [...modalList, modalListKey];
     setModalList(newModalList);
   };
 
