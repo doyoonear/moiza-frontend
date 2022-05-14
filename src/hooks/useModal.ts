@@ -1,24 +1,24 @@
-import modalAtom, { ModalKey } from '@/atoms/modal/atom';
+import modalListAtom, { ModalListKey } from '@/atoms/modalList/atom';
 import { useRecoilState } from 'recoil';
 
 interface UseModal {
-  openModal: (modalKey: ModalKey) => void;
+  openModal: (modalListKey: ModalListKey) => void;
   closeModal: () => void;
 }
 
 const useModal = (): UseModal => {
-  const [modal, setModal] = useRecoilState(modalAtom);
+  const [modalList, setModalList] = useRecoilState(modalListAtom);
 
-  const openModal = (modalKey: ModalKey) => {
-    const newModal = [...modal];
-    newModal.push(modalKey);
-    setModal(newModal);
+  const openModal = (modalListKey: ModalListKey) => {
+    const newModalList = [...modalList];
+    newModalList.push(modalListKey);
+    setModalList(newModalList);
   };
 
   const closeModal = () => {
-    const newModal = [...modal];
-    newModal.pop();
-    setModal(newModal);
+    const newModalList = [...modalList];
+    newModalList.pop();
+    setModalList(newModalList);
   };
 
   return { openModal, closeModal };

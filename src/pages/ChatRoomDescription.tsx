@@ -1,4 +1,4 @@
-import modalAtom from '@/atoms/modal/atom';
+import modalListAtom from '@/atoms/modalList/atom';
 import ModalPortal from '@/components/ModalPortal';
 import SelectableModal from '@/components/ModalPortal/SelectableModal';
 import StartingChatInput from '@/components/StartingChatInput';
@@ -26,7 +26,7 @@ const ChatRoomDescription = () => {
 
   const { openModal, closeModal } = useModal();
 
-  const isModalActivated = useRecoilValue(modalAtom).includes('selectableModal');
+  const isModalActivated = useRecoilValue(modalListAtom).includes('selectableModal');
 
   const showSelectableModal = () => {
     openModal('selectableModal');
