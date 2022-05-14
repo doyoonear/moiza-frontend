@@ -5,6 +5,7 @@ import StartingChatInput from '@/components/StartingChatInput';
 import useModal from '@/hooks/useModal';
 import { ChangeEvent, useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import Layout from '@/components/Layout';
 
 const categories = [
   '커피챗',
@@ -44,7 +45,7 @@ const ChatRoomDescription = () => {
   };
 
   return (
-    <>
+    <Layout>
       <StartingChatInput
         id="category"
         value={inputs.category}
@@ -68,7 +69,7 @@ const ChatRoomDescription = () => {
           </SelectableModal>
         </ModalPortal>
       )}
-    </>
+    </Layout>
   );
 };
 
