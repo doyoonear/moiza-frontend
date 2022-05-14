@@ -7,6 +7,7 @@ import NavBar from './components/Navigation/NavBar';
 import ChatRoom from './pages/ChatRoom';
 import ChatRoomDescription from './pages/ChatRoomDescription';
 import Main from './pages/Main';
+import SignIn from './pages/SignIn';
 import baseTheme from './styles/baseTheme';
 import GlobalStyles from './styles/globalStyles';
 
@@ -30,6 +31,7 @@ function RootWithCallbackAfterRender() {
               <Route path="/" element={<Main />} />
               <Route path="chatroom" element={<ChatRoom />} />
               <Route path="starting-chatroom" element={<ChatRoomDescription />} />
+              <Route path="sign-in" element={<SignIn />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>
