@@ -2,12 +2,12 @@ import React from 'react';
 import CommonTitle from '@/components/Typography/Title';
 import Layout from '@/components/Layout';
 
-function Main() {
+function MyPage() {
   return (
     <Layout>
-      <CommonTitle>Moiza Frontend</CommonTitle>
+      <CommonTitle>마이페이지</CommonTitle>
     </Layout>
   );
 }
 
-export default Main;
+export default MyPage;
