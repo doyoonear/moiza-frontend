@@ -5,7 +5,7 @@ import BaseLayer from './BaseLayer';
 import '../styles/modalSheet.css';
 
 const Home = () => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
   const snapPoints = [700, 100];
   const initialSnap = snapPoints.length - 1;
   const ref = useRef<SheetRef>();
@@ -22,7 +22,7 @@ const Home = () => {
 
       <Sheet
         isOpen={isOpen}
-        onClose={() => setOpen(true)}
+        onClose={() => setIsOpen(true)}
         snapPoints={snapPoints}
         initialSnap={initialSnap}
         onSnap={(snapIndex) => setSnapIndex(snapIndex)}
