@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Sheet, { SheetRef } from 'react-modal-sheet';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import BaseLayer from './BaseLayer';
-import '../styles/modalSheet.css';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(true);
