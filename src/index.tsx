@@ -1,15 +1,15 @@
+import { css, Global, ThemeProvider } from '@emotion/react';
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import { ThemeProvider, Global, css } from '@emotion/react';
-import baseTheme from './styles/baseTheme';
-import './styles/globals.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import GlobalStyles from './styles/globalStyles';
-
-import NavBar from '@/components/Navigation/NavBar';
-import Main from './pages/Main';
+import NavBar from './components/Navigation/NavBar';
 import ChatRoom from './pages/ChatRoom';
+import ChatRoomDescription from './pages/ChatRoomDescription';
+import Main from './pages/Main';
+import SignIn from './pages/SignIn';
+import baseTheme from './styles/baseTheme';
+import GlobalStyles from './styles/globalStyles';
 
 function RootWithCallbackAfterRender() {
   useEffect(() => {
@@ -30,6 +30,8 @@ function RootWithCallbackAfterRender() {
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="chatroom" element={<ChatRoom />} />
+              <Route path="starting-chatroom" element={<ChatRoomDescription />} />
+              <Route path="sign-in" element={<SignIn />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>

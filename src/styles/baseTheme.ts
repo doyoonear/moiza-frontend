@@ -6,7 +6,7 @@ const font = {
 };
 
 const color = {
-  primary: '#1DB954',
+  primary: '#A9ECE0',
   white: '#FFF',
   black: '#000',
   darkgrey: '#605A5A',

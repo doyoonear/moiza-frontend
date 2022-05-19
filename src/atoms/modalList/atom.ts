@@ -1,16 +1,8 @@
-import { ConfirmModalProps } from '@/components/ConfirmModal/ConfirmModal';
-import { SelectableModalProps } from '@/components/SelectableModal/SelectableModal';
 import { atom } from 'recoil';
 
-type ModalKey = 'selectableModal' | 'confirmModal';
-type ModalProps = SelectableModalProps | ConfirmModalProps;
+export type ModalListKey = 'selectableModal' | 'confirmModal';
 
-export interface Modal {
-  key: ModalKey;
-  props: ModalProps;
-}
-
-const modalListAtom = atom<Modal[]>({
+const modalListAtom = atom<ModalListKey[]>({
   key: 'modalListAtom',
   default: [],
 });
