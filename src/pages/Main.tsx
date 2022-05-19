@@ -1,12 +1,8 @@
 import React from 'react';
-import CommonTitle from '@/components/Typography/Title';
+import Home from '../components/Home';
 
 function Main() {
-  return (
-    <div>
-      <CommonTitle>Moiza Frontend</CommonTitle>
-    </div>
-  );
+  return <Home />;
 }
 
 export default Main;
