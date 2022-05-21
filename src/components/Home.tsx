@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, ForwardRefExoticComponent } from 'react';
 import Sheet, { SheetRef } from 'react-modal-sheet';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import BaseLayer from './BaseLayer';
 
 const Home = () => {
@@ -12,7 +13,14 @@ const Home = () => {
   const [snapIndex, setSnapIndex] = useState<number>(1);
 
   useEffect(() => {
-    console.log(snapTo);
+    const sheetContainer = document.querySelector('.react-modal-sheet-container');
+    const parent = sheetContainer.parentElement;
+
+    parent.className = 'react-modal-sheet-parent';
+  }, []);
+
+  useEffect(() => {
+    console.log('snapTo');
   }, [snapTo]);
 
   return (
