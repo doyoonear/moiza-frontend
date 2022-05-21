@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, ForwardRefExoticComponent } from 'react';
 import Sheet, { SheetRef } from 'react-modal-sheet';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import BaseLayer from './BaseLayer';
 
 const Home = () => {
@@ -16,6 +15,7 @@ const Home = () => {
     const sheetContainer = document.querySelector('.react-modal-sheet-container');
     const parent = sheetContainer.parentElement;
 
+    // MEMO: className to override z-index at global style.
     parent.className = 'react-modal-sheet-parent';
   }, []);
 
