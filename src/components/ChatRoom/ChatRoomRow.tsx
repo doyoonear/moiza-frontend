@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 import { ChatBubbleEdgeType } from '@/constants/components';
-import ChatProfileImg from '@/components/ChatProfileImg';
-import ChatBubble from '@/components/ChatBubble';
+import ChatProfileImg from '@/components/ChatRoom/ChatProfileImg';
+import ChatBubble from '@/components/ChatRoom/ChatBubble';
 
 interface ChatRoomRowProps {
   imgAlt?: string;
@@ -10,13 +10,13 @@ interface ChatRoomRowProps {
   isMyChat: boolean;
 }
 
-const ChatRoomRow = ({ children, imgAlt, imgSrc, isMyChat }: PropsWithChildren<ChatRoomRowProps>) => {
+const ChatRoomRow = ({ children, imgSrc, isMyChat }: PropsWithChildren<ChatRoomRowProps>) => {
   return (
-    <StyledChatRoomRow>
+    <StyledChatRoomRow isMyChat={isMyChat}>
       {isMyChat && <ChatBubble edgeLocation={ChatBubbleEdgeType.RIGHT}>{children}</ChatBubble>}
       {!isMyChat && (
         <>
-          <ChatProfileImg alt={imgAlt} src={imgSrc} />
+          <ChatProfileImg alt="profile-img" src={imgSrc} />
           <ChatBubble>{children}</ChatBubble>
         </>
       )}
@@ -24,9 +24,10 @@ const ChatRoomRow = ({ children, imgAlt, imgSrc, isMyChat }: PropsWithChildren<C
   );
 };
 
-const StyledChatRoomRow = styled.div`
+const StyledChatRoomRow = styled.div<{ isMyChat: boolean }>`
   display: flex;
   padding: ${({ theme }) => theme.gutter.size16};
+  ${({ isMyChat }) => isMyChat && 'justify-content: flex-end'};
 
   > img {
     margin-right: ${({ theme }) => theme.gutter.size8};

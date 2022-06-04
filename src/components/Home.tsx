@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, ForwardRefExoticComponent } from 'react';
 import Sheet, { SheetRef } from 'react-modal-sheet';
 import styled from '@emotion/styled';
 import BaseLayer from './BaseLayer';
@@ -58,7 +58,7 @@ const Home = () => {
     <Container>
       <BaseLayer />
 
-      <Sheet
+      <ParentSheet
         isOpen={isOpen}
         onClose={() => setIsOpen(true)}
         snapPoints={snapPoints}
@@ -79,12 +79,16 @@ const Home = () => {
             ></div>
           </Sheet.Content>
         </Sheet.Container>
-      </Sheet>
+      </ParentSheet>
     </Container>
   );
 };
 
 export default Home;
+
+const ParentSheet = styled(Sheet)`
+  z-index: 900 !important;
+`;
 
 const Container = styled.div`
   width: 100%;
