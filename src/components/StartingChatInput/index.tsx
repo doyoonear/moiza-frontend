@@ -8,9 +8,15 @@ interface StartingChatInputProps {
   title: string;
   placeHolder?: string;
   readOnly?: boolean;
+  isValid?: boolean;
   isSelectable?: boolean;
   onClick?: MouseEventHandler<HTMLInputElement>;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+}
+
+interface StyledInputProps {
+  isSelectable?: boolean;
+  isValid?: boolean;
 }
 
 const StartingChatInput = ({
@@ -20,6 +26,7 @@ const StartingChatInput = ({
   title,
   placeHolder,
   readOnly,
+  isValid,
   isSelectable,
   onClick,
   onChange,
@@ -32,6 +39,7 @@ const StartingChatInput = ({
         value={value}
         placeholder={placeHolder}
         readOnly={readOnly}
+        isValid={isValid}
         isSelectable={isSelectable}
         onClick={onClick}
         onChange={onChange}
@@ -43,24 +51,20 @@ const StartingChatInput = ({
 
 export default StartingChatInput;
 
-interface InputProps {
-  isSelectable?: boolean;
-}
-
 const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
 `;
 
-const Input = styled.input<InputProps>`
-  border: 1px solid;
+const Input = styled.input<StyledInputProps>`
+  border: 1px solid ${({ isValid }) => (isValid ? 'blue' : 'red')};
   cursor: ${({ isSelectable }) => (isSelectable ? 'pointer' : 'text')};
   :focus {
     background-color: rgba(0, 0, 0, 0.3);
-    caret-color: red;
+    caret-color: blue;
   }
   :focus + label {
-    color: red;
+    color: blue;
   }
 `;
 
