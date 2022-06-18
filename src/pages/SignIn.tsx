@@ -43,11 +43,7 @@ const SignIn = () => {
   };
 
   const verifyInput = (isRegExp: RegExp, value: string) => {
-    if (isRegExp.test(value)) {
-      return true;
-    } else {
-      return false;
-    }
+    return isRegExp.test(value);
   };
 
   useEffect(() => {
