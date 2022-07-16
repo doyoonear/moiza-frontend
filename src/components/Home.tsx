@@ -19,7 +19,6 @@ const Home = () => {
   const snapPoints = [700, 100];
   const initialSnap = snapPoints.length - 1;
   const [snapIndex, setSnapIndex] = useState<number>(1);
-  const { kakao } = window;
 
   // 접속한 위치의 위도와 경도를 저장 할 변수
   const [location, setLocation] = useState<ILocation>(null);
@@ -45,6 +44,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    const { kakao } = window;
     if (location !== null) {
       const container = document.getElementById('myMap');
       const options = {
@@ -58,7 +58,6 @@ const Home = () => {
   return (
     <Container>
       <BaseLayer />
-
       <ParentSheet
         isOpen={isOpen}
         onClose={() => setIsOpen(true)}
